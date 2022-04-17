@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser,FaAngleRight} from "react-icons/fa";
+import { GiSpeaker } from "react-icons/gi";
+import {BiUserCircle} from "react-icons/bi";
+
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
@@ -24,22 +28,22 @@ const routes = [
   {
     path: "/communication",
     name: "Communication",
-    icon: <AiTwotoneFileExclamation />,
+    icon: <GiSpeaker />,
     subRoutes: [
       {
         path: "/communication/post",
         name: "Sticky Post ",
-        icon: <FaUser />,
+        icon: <FaAngleRight />,
       },
       {
         path: "/communication/notification",
         name: "Push Notifications",
-        icon: <FaLock />,
+        icon: <FaAngleRight />,
       },
       {
-        path: "/settings/billing",
+        path: "/communication/feed",
         name: "Social Feed",
-        icon: <FaMoneyBill />,
+        icon: <FaAngleRight />,
       },
     ],
   },
@@ -47,23 +51,23 @@ const routes = [
   {
     path: "/Residents",
     name: "Residents",
-    icon: <BiCog />,
+    icon: <BiUserCircle />,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
+        path: "/Resident/nothing",
+        name: "Nothing ",
+        icon: <FaAngleRight />,
       },
       {
-        path: "/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
+        path: "/Resident/nothing",
+        name: "Nothing",
+        icon: <FaAngleRight />,
       },
       {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
+        path: "/Resident/nothing",
+        name: "Nothing",
+        icon: <FaAngleRight />,
       },
       
     ],
@@ -71,23 +75,23 @@ const routes = [
   {
     path: "/Visitors",
     name: "Visitors",
-    icon: <BiCog />,
+    icon: <FaHome />,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
+        path: "/Visitor/nothing",
+        name: "Nothing ",
+        icon: <FaAngleRight />,
       },
       {
-        path: "/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
+        path: "/Visitor/nothing",
+        name: "Nothing",
+        icon: <FaAngleRight />,
       },
       {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
+        path: "/Visitor/nothing",
+        name: "Nothing",
+        icon: <FaAngleRight />,
       },
       
     ],
@@ -167,23 +171,7 @@ const SideBar = ({ children }) => {
               <FaBars onClick={toggle} />
             
           </div>
-          <div className="search">
-            <div className="search_icon">
-              <BiSearch />
-            </div>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.input
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={inputAnimation}
-                  type="text"
-                  placeholder="Search"
-                />
-              )}
-            </AnimatePresence>
-          </div>
+         
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {

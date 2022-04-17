@@ -68,12 +68,13 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding:15px;
 }
 .link {
   display: flex;
   color: white;
   gap: 10px;
-  padding: 5px 10px;
+  padding: 25px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
@@ -88,7 +89,7 @@ main {
 }
 .link_text {
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .menu {
@@ -169,3 +170,7 @@ form.communication button{
  
 }
 
+svg{
+  width: 25px;
+  height: 41px;
+}
